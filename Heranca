@@ -41,22 +41,18 @@ public class Loja {
 		cd0.dados("Nenhum de nós", 20.00, 10);
 		produtos.add(cd0);
 		
-		// Faz a chamada do produto CD
 		CDs cd1 = new CDs(456456456);
 		cd1.dados("Dazaranha", 25.00, 18);
 		produtos.add(cd1);
 		
-		// Faz a chamada do produto DVD
 		DVDs dvd0 = new DVDs(123123123);
 		dvd0.dados("A espera de um milagre", 30.00, "2:00");
 		produtos.add(dvd0);
 		
-		// Faz a chamada do produto Livro
 		Livros livro0 = new Livros(741741741);
 		livro0.dados("As aventuras de PI", 25.00, "Yann Martel");
 		produtos.add(livro0);
 		
-		// Faz a chamada do produto Livro
 		Livros livro1 = new Livros(258258258);
 		livro1.dados("Dom Casmurro", 35.00, "Machado de Assis");
 		produtos.add(livro1);
