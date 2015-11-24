@@ -1,0 +1,159 @@
+/*
+ 
+ Nome: Cristiane Alves da Vitória
+ Matrícula: C347BG-8
+ Turma: DS3P30
+ 
+Descrição: 1) Implemente, em Java, uma classe abstrata de nome Figura onde são 
+declarados dois métodos abstratos:  float calcularArea();  float calcularPerimetro(); 
+2) Crie, como subclasse de Figura, uma classe de nome Retângulo cujas instâncias são
+caracterizadas pelos atributos lado e altura ambos do tipo float. Implemente na 
+classe Retângulo os métodos herdados de Figura  e outros que ache necessários.
+3) Crie, como subclasse de Figura, uma classe de nome Circulo cujas instâncias são
+ caracterizadas pelo atributo raio do tipo float. Implemente na classe Circulo os 
+ métodos herdados de Figura e outros que ache necessários. 
+Nota: poderá obter o valor de Pi fazendo Math.PI.
+4) Crie, como subclasse de Retangulo, uma classe de nome Quadrado cujas instâncias 
+são caracterizadas por terem os atributos lado e altura com o mesmo valor.
+5) Elabore um programa de teste onde é declarado um ArrayList, do tipo Figura. 
+Nesse ArrayList devem ser guardadas instâncias de Retângulo, Circulo e Quadrado.  
+Depois implemente um ciclo que percorra o ArrayList evocando, relativamente a cada 
+um dos objetos guardados, os métodos calcularArea e calcularPerimetro.
+ */
+
+package Abstratos;
+
+import java.util.ArrayList;
+
+public class Teste {
+
+	public static void main(String[] args) {
+		//Criação do Array de produtos
+		ArrayList<Figura> figuras = new ArrayList<Figura>();
+		
+		//Instancia de figuras
+		Circulo   circulo   = new Circulo   (5);
+		Quadrado  quadrado  = new Quadrado  (8);
+		Retangulo retangulo = new Retangulo (4,2);
+		
+		
+		//Adicionando à lista
+		figuras.add(circulo);
+		figuras.add(quadrado);
+		figuras.add(retangulo);
+		
+		
+		for (Figura figura : figuras){
+			if (figura == circulo){
+				System.out.println(circulo.toString());
+				System.out.println("Area:" + circulo.calcularArea());
+				System.out.println("Perimetro:" + circulo.calcularPerimetro());
+			}else if (figura == quadrado){
+				System.out.println(quadrado.toString());
+				System.out.println("Area:" + quadrado.calcularArea());
+				System.out.println("Perimetro:" + quadrado.calcularPerimetro());
+			}else if (figura == retangulo){
+				System.out.println(retangulo.toString());
+				System.out.println("Area:" + retangulo.calcularArea());
+				System.out.println("Perimetro:" + retangulo.calcularPerimetro());
+			}
+		}	
+		
+		
+	}
+
+}
+
+
+//Figura
+package Abstratos;
+
+public abstract class Figura {
+	
+	public abstract float calcularArea();
+	
+	public abstract float calcularPerimetro();
+	
+	public abstract String toString();
+
+}
+
+//Círculo
+package Abstratos;
+
+public class Circulo extends Figura {
+
+	private float raio;
+	
+	public Circulo (float raio){
+		this.raio = raio;
+	}
+	
+	@Override
+	public float calcularArea() {
+		return (float) (Math.PI * Math.pow(this.raio,2));
+	}
+
+	@Override
+	public float calcularPerimetro() {
+		return (float) (2* Math.PI * this.raio);
+	}
+
+	@Override
+	public String toString() {
+		return "\nCirculo\nRaio: " + this.raio;
+	}
+
+}
+
+
+//Retângulo
+package Abstratos;
+
+public class Retangulo extends Figura{
+
+	private float base;
+	private float altura;
+	
+	public Retangulo(float base, float altura){
+		this.base = base;
+		this.altura = altura;
+	}
+	
+	@Override
+	public float calcularArea() {
+		return this.base * this.altura;
+	}
+
+	@Override
+	public float calcularPerimetro() {
+		return this.base*2 + this.altura*2;
+	}
+
+	@Override
+	public String toString() {
+		return "\nRetângulo\nBase: " + this.base + "\nAltura: " + this.altura;
+	}
+
+}
+
+
+//Quadrado
+package Abstratos;
+
+public class Quadrado extends Retangulo {
+
+	private float lado;
+	
+	public Quadrado(float lado) {
+		super(lado, lado);
+		this.lado = lado;
+	}
+	
+	
+	public String toString() {
+		return "\nQuadrado\nLado:" + this.lado;
+	}
+
+}
+
