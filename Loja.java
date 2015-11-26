@@ -22,15 +22,17 @@ Na classe Loja, implemente um simples procedimento de busca que, dado um produto
  e um vetor de produtos, indique em que posição do vetor se encontra o produto 
  especificado ou imprima que o mesmo não foi encontrado;
  */
-
+//Chamda de bibliotecas
 package ProjetoHerenca;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Classe principal
 public class Loja {
 	
 	static int cod_Barras;
 	
+	//Método MAIN
 	public static void main(String[] args) {
 		
 		//Criação do Array de produtos
@@ -39,25 +41,26 @@ public class Loja {
 		//Cadastro de produtos
 		CDs cd0 = new CDs(789789789);
 		cd0.dados("Nenhum de nós", 20.00, 10);
-		produtos.add(cd0);
+
 		
 		CDs cd1 = new CDs(456456456);
 		cd1.dados("Dazaranha", 25.00, 18);
-		produtos.add(cd1);
-		
+	
 		DVDs dvd0 = new DVDs(123123123);
 		dvd0.dados("A espera de um milagre", 30.00, "2:00");
-		produtos.add(dvd0);
 		
 		Livros livro0 = new Livros(741741741);
 		livro0.dados("As aventuras de PI", 25.00, "Yann Martel");
-		produtos.add(livro0);
 		
 		Livros livro1 = new Livros(258258258);
 		livro1.dados("Dom Casmurro", 35.00, "Machado de Assis");
-		produtos.add(livro1);
 		
-		
+		//Inclusão dos produtos na Arraylist
+		produtos.add(cd0);		
+		produtos.add(cd1);
+		produtos.add(dvd0);
+		produtos.add(livro0);
+		produtos.add(livro1);		
 		
 		//Impressão dos produtos já cadastrados
 		for (Produto produto : produtos){
